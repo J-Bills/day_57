@@ -23,13 +23,14 @@ def name_apis(name):
     age_data = agify.json()
     return render_template('names.html', gender=gender_data, age=age_data, users_name=name)
 
-@app.route('/blog')
-def blog():
+@app.route('/blog/<num>')
+def get_blog(num):
     response = requests.api.get(url='https://api.npoint.io/c790b4d5cab58020d391')
     status = response.raise_for_status()
     all_posts = response.json()
+    num = int(num)
     
-    return render_template('blog.html', posts=all_posts, stat=status)
+    return render_template('blog.html', posts=all_posts, stat=status, number=num)
 
 if __name__ == "__main__":
     app.run(debug=True)

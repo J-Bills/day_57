@@ -17,7 +17,7 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         {% for blog_post in posts: %}
-            {%if blog_post['id'] == 2%}
+            {%if blog_post['id'] == number%}
             <h1>{{blog_post['title']}}</h1>
             <h1>{{blog_post['subtitle']}}</h1>
             {% endif %}
